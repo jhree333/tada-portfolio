@@ -1,0 +1,16 @@
+@charset "utf-8";
+@import "./utils.scss";
+@import url("./reset.css");
+@import url("./common.css");
+@import url(https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  font-family: "Spoqa Han Sans Neo", sans-serif;
+  word-break: keep-all;
+
+  &.hidden {
+    overflow: hidden;
+  }
+}
