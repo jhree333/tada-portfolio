@@ -1,0 +1,230 @@
+@import "../utils.scss";
+
+.sc_howtouse {
+  width: 100%;
+  overflow-x: hidden;
+  margin-top: 180px;
+
+  @include tablet {
+    margin-top: 80px;
+  }
+
+  @include mobile {
+    margin-top: 10px;
+  }
+
+  .title_wrapper {
+    padding: 120px 90px 0px;
+
+    @include tablet {
+      padding: 120px 50px 0px;
+    }
+
+    @include mobile {
+      padding: 120px 24px 0px;
+    }
+
+    h2 {
+      font-size: 16px;
+      color: #19254c;
+      margin-bottom: 20px;
+      font-weight: bold;
+
+      @include tablet {
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+
+      @include mobile {
+        font-size: 13px;
+      }
+    }
+
+    p {
+      font-size: 50px;
+      color: #19254c;
+      line-height: 80px;
+      font-weight: 400;
+      max-width: 490px;
+
+      @include tablet {
+        font-size: 44px;
+        line-height: 74.8px;
+        letter-spacing: -0.2px;
+      }
+
+      @include mobile {
+        font-size: 26px;
+        line-height: 42.9px;
+      }
+    }
+  }
+
+  .slider-content-wrapper {
+    position: relative;
+    margin-top: 40px;
+
+    .frame {
+      position: absolute;
+      z-index: 3;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 510px;
+      height: 795px;
+      background: url("../images/banner/phone/iphone.png") no-repeat center top / 100%;
+
+      @include mobile {
+        top: 0;
+        max-width: 328px;
+        height: 510px;
+      }
+    }
+
+    .swiper {
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      overflow: hidden;
+      list-style: none;
+      padding: 0;
+      z-index: 1;
+
+      &.howtouse-slider {
+        position: relative;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: 3;
+          display: block;
+          top: 0;
+          width: 23vw;
+          height: 100%;
+        }
+
+        &::before {
+          left: 0;
+          background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+        }
+
+        &::after {
+          left: auto;
+          right: 0;
+          background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+        }
+
+        .swiper-wrapper {
+          transform: translate3d(0px, 0, 0);
+          position: relative;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          display: flex;
+          transition-property: transform;
+          box-sizing: content-box;
+
+          li {
+            max-width: 450px;
+            padding-top: 63px;
+
+            &.swiper-slide {
+              flex-shrink: 0;
+              width: 100%;
+              height: 100%;
+              position: relative;
+              transition-property: transform;
+
+              &.swiper-slide-active {
+                .text-wrapper {
+                  opacity: 1;
+                  transition: all 700ms cubic-bezier(0.12, 0.53, 0.76, 0.98);
+                }
+              }
+
+              @include mobile {
+                position: relative;
+                max-width: 240px;
+                padding-top: 54px;
+              }
+
+              .screenshot {
+                width: 100%;
+                max-width: 288px;
+                margin: 0 auto;
+                filter: drop-shadow(-5px 5px 24px rgba(0, 0, 0, 0.1));
+                -webkit-filter: drop-shadow(-5px 5px 24px rgba(0, 0, 0, 0.1));
+                -moz-filter: drop-shadow(-5px 5px 24px rgba(0, 0, 0, 0.1));
+
+                @include mobile {
+                  max-width: 185px;
+                }
+
+                img {
+                  width: 100%;
+                }
+              }
+
+              .text-wrapper {
+                text-align: center;
+                font-size: 24px;
+                color: #19254c;
+                line-height: 40.8px;
+                opacity: 0;
+
+                @include tablet {
+                  font-size: 20px;
+                  line-height: 36px;
+                }
+
+                @include mobile {
+                  font-size: 20px;
+                  line-height: 36px;
+                }
+
+                h3 {
+                  font-size: inherit;
+                  line-height: inherit;
+                  margin-top: 95px;
+                  font-weight: bold;
+
+                  @include tablet {
+                    margin-top: 78px;
+                  }
+
+                  @include mobile {
+                    font-size: 16px;
+                    line-height: 27.2px;
+                    margin-top: 65px;
+                  }
+                }
+
+                p {
+                  font-size: inherit;
+                  line-height: inherit;
+                  margin-top: 10px;
+
+                  @include mobile {
+                    font-size: 16px;
+                    line-height: 27.2px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .swiper-notification {
+          position: absolute;
+          left: 0;
+          top: 0;
+          pointer-events: none;
+          opacity: 0;
+          z-index: -1000;
+        }
+      }
+    }
+  }
+}

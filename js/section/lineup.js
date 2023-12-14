@@ -52,12 +52,38 @@ export default function updateLineup() {
     $(this).addClass("vimeo-active").siblings().removeClass("vimeo-active");
   });
 
+  // lineupSwiper.on("slideChange", function () {
+  //   let idx = this.realIndex;
+  //   lineupPlayers.forEach((element) => {
+  //     element.unload();
+  //   });
+  //   lineupPlayers[idx].play();
+  //   $(".nav_wrapper li").eq(idx).addClass("on");
+  // });
+
   lineupSwiper.on("slideChange", function () {
     let idx = this.realIndex;
-    lineupPlayers.forEach((element) => {
-      element.unload();
+    lineupPlayers.forEach((element, index) => {
+      if (index === idx) {
+        element
+          .play()
+          .then(function () {
+            // 재생이 성공적으로 시작됨
+            $(".nav_wrapper li").eq(idx).addClass("on");
+          })
+          .catch(function (error) {
+            console.error("재생 중 오류:", error);
+          });
+      } else {
+        element
+          .pause()
+          .then(function () {
+            // 일시 정지가 성공적으로 수행됨
+          })
+          .catch(function (error) {
+            console.error("일시 정지 중 오류:", error);
+          });
+      }
     });
-    lineupPlayers[idx].play();
-    $(".nav_wrapper li").eq(idx).addClass("on");
   });
 }

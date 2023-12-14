@@ -1,0 +1,333 @@
+@import "./utils.scss";
+
+footer {
+  padding: 80px 90px;
+  background: #f5f6f7;
+
+  @include tablet {
+    padding: 70px 50px;
+  }
+
+  @include mobile {
+    padding: 81px 24px 80px;
+  }
+
+  .driver_area {
+    margin-bottom: 78px;
+
+    @include tablet {
+      margin-bottom: 58px;
+    }
+
+    @include mobile {
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      width: 100%;
+      font-size: 16px;
+      color: #19254c;
+      font-weight: bold;
+
+      @include tablet {
+        margin-bottom: 12px;
+        font-size: 15px;
+        line-height: 30px;
+      }
+
+      @include mobile {
+        margin-bottom: 15px;
+        font-size: 13px;
+        line-height: 20px;
+      }
+    }
+
+    .apply_wrapper {
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        @include tablet {
+          flex-wrap: wrap;
+        }
+
+        @include mobile {
+          flex-wrap: wrap;
+        }
+
+        li {
+          width: calc(50% - 6px);
+          margin-bottom: 12px;
+
+          @include tablet {
+            min-width: 327px;
+          }
+
+          @include mobile {
+            min-width: 100%;
+            margin-bottom: 10px;
+          }
+
+          a {
+            display: block;
+            padding: 17px 80px 17px 24px;
+            border: 2px solid #19254c;
+            color: #19254c;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 32px;
+            background: url("../images/icon/arrow_da_n_pc.svg") no-repeat;
+            background-position: right 14px center;
+            transition-duration: 300ms;
+
+            @include tablet {
+              padding-left: 20px;
+              border-width: 1px;
+              font-size: 14px;
+              line-height: 25px;
+              background-image: url("../images/icon/arrow_da_n_ta.svg");
+              background-position: right 19px center;
+            }
+
+            @include mobile {
+              padding-left: 14px;
+              font-size: var(--FooterButtonMo);
+              line-height: 24px;
+              background-image: url("../images/icon/arrow_da_n_mo.svg");
+            }
+
+            &:hover {
+              color: #f5f6f7;
+              background-color: #19254c;
+              background-image: url("../images/icon/arrow_da_g_pc.svg");
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .info_area {
+    h3 {
+      color: #31487d;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #31487d;
+      font-weight: bold;
+      width: 100%;
+      font-size: 16px;
+
+      @include tablet {
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        border-width: 1px;
+      }
+
+      @include mobile {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        font-size: 13px;
+        line-height: 20px;
+      }
+    }
+
+    .contents {
+      display: flex;
+
+      @include tablet {
+        flex-wrap: wrap;
+      }
+
+      div,
+      address {
+        width: 25%;
+        min-width: 250px;
+      }
+
+      .addr_wrapper {
+        @include tablet {
+          width: 35%;
+          min-width: 310px;
+          padding-right: 20px;
+          margin-bottom: 40px;
+
+          span {
+            font-size: 14px;
+          }
+        }
+
+        @include mobile {
+          width: 100%;
+          min-width: 100%;
+          padding-right: 0px;
+
+          span {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .email_wrapper {
+        width: 50%;
+
+        @include tablet {
+          width: 40%;
+          min-width: 310px;
+          padding-right: 20px;
+          margin-bottom: 40px;
+
+          span {
+            font-size: 14px;
+          }
+        }
+
+        @include mobile {
+          width: 100%;
+          min-width: 100%;
+          padding-right: 0px;
+
+          span {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .link_wrapper {
+        @include tablet {
+          width: 25%;
+          min-width: 180px;
+          margin-bottom: 40px;
+
+          span {
+            font-size: 14px;
+          }
+        }
+
+        @include mobile {
+          width: 100%;
+          min-width: 100%;
+          padding-right: 0px;
+
+          span {
+            font-size: 12px;
+          }
+        }
+
+        span {
+          a {
+            color: #19254c;
+            font-weight: 700;
+          }
+        }
+      }
+
+      span {
+        display: block;
+        font-size: 14px;
+        color: #31487d;
+        line-height: 28px;
+      }
+    }
+  }
+
+  .corp_area {
+    margin-top: 130px;
+    display: flex;
+    align-items: flex-end;
+
+    @include tablet {
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    @include mobile {
+      flex-flow: column-reverse;
+      margin-top: 30px;
+    }
+
+    p {
+      width: 75%;
+      font-size: 16px;
+      color: #31487d;
+      font-weight: 700;
+
+      @include tablet {
+        font-size: 14px;
+      }
+
+      @include mobile {
+        width: 100%;
+        font-size: 12px;
+        margin-bottom: 0;
+      }
+    }
+
+    .sns_wrapper {
+      display: flex;
+      width: 25%;
+
+      @include tablet {
+        min-width: 156px;
+      }
+
+      @include mobile {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      li {
+        margin-right: 10px;
+
+        @include mobile {
+          margin-right: 8px;
+        }
+
+        a {
+          display: block;
+          width: 40px;
+          height: 40px;
+          background-repeat: no-repeat;
+          background-size: 26px;
+          background-position: center;
+          background-color: #c0c8d9;
+          border-radius: 50%;
+          transition: background-color 300ms;
+
+          @include tablet {
+            width: 35px;
+            height: 35px;
+            background-size: 23px;
+          }
+
+          @include mobile {
+            width: 32px;
+            height: 32px;
+            background-size: 20px;
+          }
+
+          &:hover {
+            background-color: #19254c;
+          }
+        }
+
+        &:nth-of-type(1) a {
+          background-image: url("../images/icon/ic_insta.svg");
+        }
+
+        &:nth-of-type(2) a {
+          background-image: url("../images/icon/ic_youtube.svg");
+        }
+
+        &:nth-of-type(3) a {
+          background-image: url("../images/icon/ic_facebook.svg");
+        }
+
+        &:nth-of-type(4) a {
+          background-image: url("../images/icon/ic_naver.svg");
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,302 @@
+@import "../utils.scss";
+
+.sc_video {
+  height: calc(100vh - 60px);
+  position: relative;
+  z-index: 20;
+  background-color: #0d0d0d;
+  overflow-x: hidden;
+
+  @keyframes fadeInAndOut01 {
+    0% {
+      opacity: 0;
+    }
+
+    25% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeInAndOut02 {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    75% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .title_wrapper {
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    width: 100%;
+    height: inherit;
+    padding-top: 10vh;
+    text-align: center;
+
+    @include tablet {
+      padding-top: 6vh;
+    }
+
+    h2 {
+      position: relative;
+      z-index: 1;
+      height: 160px;
+      font-size: 50px;
+      color: #ffffff;
+      font-weight: 500;
+      line-height: 1.4;
+
+      @include tablet {
+        height: 150px;
+        font-size: 44px;
+        line-height: 74.8px;
+        letter-spacing: -0.2px;
+        padding: 0 50px;
+      }
+
+      @include mobile {
+        height: 86px;
+        font-size: 26px;
+        line-height: 42.9px;
+      }
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      animation-duration: 14000ms;
+      animation-iteration-count: infinite;
+      opacity: 0;
+    }
+
+    .btn_wrapper {
+      @keyframes fadeInAndOut {
+        0% {
+          opacity: 0;
+        }
+
+        25% {
+          opacity: 1;
+        }
+
+        75% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+
+      animation-name: fadeInAndOut;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      opacity: 0;
+      animation-duration: 14000ms;
+      animation-iteration-count: infinite;
+
+      @include tablet {
+        margin-top: 24px;
+      }
+
+      @include mobile {
+        margin-top: 20px;
+      }
+
+      button {
+        transition: opacity 300ms;
+        width: 157px;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        border: none;
+        background-color: inherit;
+        font-family: inherit;
+        color: inherit;
+
+        @include tablet {
+          display: none;
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        img {
+          width: 100%;
+          vertical-align: middle;
+        }
+      }
+
+      .onelink {
+        display: none;
+
+        @include tablet {
+          display: block;
+        }
+
+        img {
+          vertical-align: middle;
+
+          &.mo {
+            @include tablet {
+              display: none;
+            }
+
+            @include mobile {
+              width: 118px;
+            }
+          }
+
+          &.ta {
+            @include tablet {
+              width: 157px;
+            }
+
+            @include mobile {
+              width: 118px;
+            }
+          }
+        }
+      }
+
+      .link_wrapper {
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 328px;
+        height: 58px;
+        border-radius: 80px;
+        text-align: center;
+        background-color: #ffffff;
+        box-shadow: 5px 5px 14px 4px rgba(0, 0, 0, 0.05);
+        opacity: 0;
+        visibility: hidden;
+
+        &.show {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        a {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          padding-left: 63px;
+          width: 50%;
+          height: inherit;
+          font-size: 14px;
+          color: #868b9c;
+          border-radius: 64px;
+          background-size: 35px;
+          background-position: 23px center;
+          background-repeat: no-repeat;
+          transition: all 300ms;
+
+          &.google {
+            background-image: url("../images/icon/ic_google.png");
+          }
+
+          &.app_store {
+            background-image: url("../images/icon/ic_appstore.png");
+            background-position: 29px center;
+            padding-left: 69px;
+          }
+
+          &:hover {
+            background-color: #e6e9ef;
+          }
+        }
+      }
+    }
+  }
+
+  &.active .title_01 {
+    animation-name: fadeInAndOut01;
+  }
+
+  &.active .title_02 {
+    animation-name: fadeInAndOut02;
+  }
+
+  .video_background {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: inherit;
+
+    iframe {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 100vw;
+      min-width: 1920px;
+      height: 100vh;
+      transform: translate3d(-50%, 0, 0);
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 300ms;
+    }
+
+    .poster {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 100vw;
+      height: 100vh;
+      transform: translate3d(-50%, 0, 0);
+      background-repeat: no-repeat;
+      background-position: center;
+      // contain은 위드만 cover는 위드와 높이
+      background-size: cover;
+      background-image: url("../images/banner/car/video_main_pc.jpeg");
+
+      @include tablet {
+        left: calc(50% - 50px);
+      }
+
+      @include mobile {
+        left: 50%;
+      }
+    }
+  }
+
+  &.active .video_background iframe {
+    opacity: 1;
+  }
+
+  @media (min-aspect-ratio: 16 / 9) {
+    .video_background iframe,
+    .video_background .poster {
+      height: 56.25vw;
+    }
+  }
+}
